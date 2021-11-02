@@ -1,6 +1,8 @@
 package pl.camp.it;
+
 import pl.camp.it.database.BMI;
 import pl.camp.it.gui.GUI;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -13,6 +15,7 @@ public class App {
 
         Random random = new Random();
         Map<Integer, BMI> IDBMI = new HashMap<>();
+
 
         while (true) {
 
@@ -40,10 +43,14 @@ public class App {
                 case "2":
                     System.out.println("Podaj ID żeby dowiedziec się jakie masz BMI: ");
                     Integer writeID = Integer.valueOf(reader.readLine());
-
-                    System.out.println("Twoje BMI to " + IDBMI.get(writeID).getCal());
-                    System.out.println("dla wagi ciała : " + IDBMI.get(writeID).getWeight() + "kg" + " oraz wzrostu : " + IDBMI.get(writeID).getHeight() + "cm" );
-                    System.out.println("oraz wzrostu : " + IDBMI.get(writeID).getHeight() + "cm" );
+// ********************** próba na ifie niedziałająca
+                    if (writeID != IDBMI.get(writeID).keySet()) {
+                        System.out.println("nie ma takiego id");
+                    } else {
+                        System.out.println("Twoje BMI to " + IDBMI.get(writeID).getCal());
+                        System.out.println("dla wagi ciała : " + IDBMI.get(writeID).getWeight() + "kg" + " oraz wzrostu : " + IDBMI.get(writeID).getHeight() + "cm");
+                        System.out.println("oraz wzrostu : " + IDBMI.get(writeID).getHeight() + "cm");
+                    }
 
                     break;
 
