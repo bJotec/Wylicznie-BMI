@@ -4,8 +4,11 @@ import java.text.DecimalFormat;
 
 public class BMI extends Database {
 
+    private double cal;
+
     public BMI(double weight, double height, double cal) {
-        super(weight, height, cal);
+        super(weight, height);
+        this.cal = cal;
     }
 
     public static double calculate(double weight, double height){
@@ -14,12 +17,15 @@ public class BMI extends Database {
         double cal = (weight / squareHeight ) * 10000;
 
         DecimalFormat df = new DecimalFormat("##.##");
-       // To tylko na czas pisania wiadomosc dla mnie
-        System.out.println("Twoje BMI wynosi : ");
-        System.out.println(df.format(cal));
+
+       /* System.out.println("Twoje BMI wynosi : ");
+        System.out.println(df.format(cal));*/
 
         return cal;
 
     }
+    public String getCal() {
+        DecimalFormat df = new DecimalFormat("##.##");
+        return df.format(cal);}
 
 }

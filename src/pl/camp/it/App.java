@@ -28,28 +28,23 @@ public class App {
                     System.out.println("Wprowadz wzrost w centrymetrach: ");
                     Double height = Double.valueOf(reader.readLine());
 
-                    double cal = BMI.calculate(weight, height);
+                    Double cal = BMI.calculate(weight, height);
 
-                    // *********    tu nie wiem jak wrzucić dane wprowadzone do konstruktora do mapy
-                    IDBMI.put(random.nextInt(101), new BMI(weight, height, cal));
+                    int id = random.nextInt(101);
 
-                    // *********    tu powinna byc wyplute ID tylko tego wyliczonego a nie wszystkie ktore generowane bylo pokolei ??
-                    System.out.println(" Twoje unikalne ID pod którym znajduje się BMI to : " + IDBMI.keySet());
+                    IDBMI.put(id, new BMI(weight, height, cal));
+
+                    System.out.println(" Twoje unikalne ID pod którym znajduje się BMI to : " + id);
 
                     break;
                 case "2":
                     System.out.println("Podaj ID żeby dowiedziec się jakie masz BMI: ");
                     Integer writeID = Integer.valueOf(reader.readLine());
 
-                    for (int element : IDBMI.keySet()) {
-                        if (element == writeID) {
-                            // *********    tu Nie wiem jak wypluć tylko zmienną "cal" odpowiedzialną za BMI, a potem wypluć wprowadzone dane czyli wysokość i wage
-                            System.out.println("Twoje BMI to " + IDBMI.values() + " Dla podanych danych :" + " tu dodac  getery do podanych wysokosci i mas");
-                            break;
-                        } else  {
-                            System.out.println("NIE MA TAKIEGO ID!!! ");
-                        }
-                    }
+                    System.out.println("Twoje BMI to " + IDBMI.get(writeID).getCal());
+                    System.out.println("dla wagi ciała : " + IDBMI.get(writeID).getWeight() + "kg" + " oraz wzrostu : " + IDBMI.get(writeID).getHeight() + "cm" );
+                    System.out.println("oraz wzrostu : " + IDBMI.get(writeID).getHeight() + "cm" );
+
                     break;
 
                 case "3":
