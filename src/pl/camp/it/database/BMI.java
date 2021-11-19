@@ -2,14 +2,19 @@ package pl.camp.it.database;
 
 import java.text.DecimalFormat;
 
-public class BMI extends Database {
+public class BMI {
 
-    private double cal;
+    /*private static final BMI instance = new BMI();*/
+
 
     public BMI(double weight, double height, double cal) {
-        super(weight, height);
         this.cal = cal;
+        this.weight = weight;
+        this.height = height;
     }
+    double weight ;
+    double height ;
+    double cal ;
 
     public static double calculate(double weight, double height){
 
@@ -18,8 +23,8 @@ public class BMI extends Database {
 
         DecimalFormat df = new DecimalFormat("##.##");
 
-       /* System.out.println("Twoje BMI wynosi : ");
-        System.out.println(df.format(cal));*/
+        System.out.println("Twoje BMI wynosi : ");
+        System.out.println(df.format(cal));
 
         return cal;
 
@@ -28,4 +33,15 @@ public class BMI extends Database {
         DecimalFormat df = new DecimalFormat("##.##");
         return df.format(cal);}
 
+    public double getWeight() {
+        return weight;
+    }
+
+    public double getHeight() {
+        return height;
+    }
+
+/*    public static BMI getInstance(){
+        return instance;
+    }*/
 }
